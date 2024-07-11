@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Anime Template"/>
+    <meta name="keywords" content="Anime, unica, creative, html"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>AuctionArena</title>
+
+    <!-- 브라우저 로고 -->
+    <link rel="icon" href="/img/logo_icon.png"/>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>
+    <!-- <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" type="text/css" /> -->
+
+    <!-- Sweet Alert -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.1/dist/sweetalert2.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" th:href="@{/css/elegant-icons.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/plyr.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/nice-select.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/slicknav.min.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/category.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/header.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/product_details.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/upload.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/product_sale.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/floatingbar.css}" type="text/css"/>
+
+    <!-- swiper 사용(이미지 슬라이더) -->
+    {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/swiper.css}" type="text/css"/> {% endcomment %}
+    <th:block layout:fragment="css"></th:block>
+  </head>
+
+  <body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+      <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    {% include "header.html" %}
+    <!-- Header End -->
+
+    <!-- Floatingbar Section Begin -->
+    <div th:replace="~{fragments/floatingbar::floatingbar}"></div>
+    <!-- Floatingbar End -->
+
+    <!-- 본문 내용 들어올 영역-->
+    {% block content %}{% endblock content %}
+
+    <!-- Footer Section Begin -->
+    {% include "footer.html" %}
+    <!-- Footer Section End -->
+
+    <!-- Sweet Alert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.1/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static "js/swiper.js" %}"></script>
+    
+    <!-- Js Plugins -->
+    <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/player.js" %}"></script>
+    <script src="{% static "js/query.nice-select.min.js" %}"></script>
+    <script src="{% static "js/mixitup.min.js" %}"></script>
+    <script src="{% static "js/jquery.slicknav.js" %}"></script>
+    <script src="{% static "js/owl.carousel.min.js" %}"></script>
+    <script src="{% static "js/js/main.js" %}"></script>
+    {% block script %}{% endblock script %}
+    <!--
+    <th:block layout:fragment="script"></th:block>
+    -->
+  </body>
+
+</html>

@@ -1,0 +1,47 @@
+<!-- Footer Section Begin -->
+<footer class="footer">
+  <div class="page-up">
+    <a href="#" id="scrollToTopButton">
+      <span class="arrow_carrot-up"></span></a>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="footer__logo">
+          <!-- <a th:href="@{/}"><img th:src="@{/img/logo.png}" alt=""/></a> -->
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="footer__nav">
+          <ul>
+            <li class="btn-home">
+              <!-- <a th:href="@{/}">Homepage</a> -->
+              <a href="{% url "/" %}">Homepage</a>
+            </li>
+            <li>
+              <a th:href="@{/auctionArena/categories}">Categories</a>
+              <a href="{% url "" %}">Categories</a>
+            </li>
+            <li>
+              <a th:href="@{/auctionArena/customer-service}">Contacts</a>
+              <a href="{% url "" %}">Contacts</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer__div">
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          &copy; Auction Arena | 한살차이
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Footer Section End -->
+
+</html>

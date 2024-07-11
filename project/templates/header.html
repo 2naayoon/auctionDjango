@@ -1,0 +1,120 @@
+<!-- Header Section Begin -->
+<header class="header">
+  <div class="container">
+    <div class="header__menu">
+      <div class="header__logo">
+        <!-- <a th:href="@{/}"><img class="header__logo" th:src="@{/img/logo.png}" alt=""/></a> -->
+        <a href="{% url "/" %}"><img class="header__logo" src="/img/logo.png" alt=""/></a>
+      </div>
+      <!-- 검색 -->
+      <!-- <form th:action="@{/auctionArena/categories}" role="search" id="searchForm"> -->
+      <form action="" role="search" id="searchForm">
+        <input type="hidden" name="page" value="1" class="form-control">
+        <!-- <div class="search-bar"> <input class="search-bar__input" type="search" placeholder="검색" aria-label="Search"/> <button class="search-btn" type="submit"><i class="fas fa-search"></i></button> </div> -->
+      </form>
+      <nav>
+        <ul>
+          <li>
+            <a href="{% url "/" %}">
+              <b>홈</b>
+            </a>
+          </li>
+          <li sec:authorize="!isAuthenticated">
+            <!-- <a th:href="@{/member/login}"> -->
+            <a href="">
+              <b>로그인</b>
+            </a>
+          </li>
+          <li sec:authorize="!isAuthenticated">
+            <!-- <a th:href="@{/member/signup}"> -->
+            <a href="">
+              <b>회원가입</b>
+            </a>
+          </li>
+
+          <!-- 로그인 후 -->
+          <li sec:authorize="isAuthenticated">
+            <!-- <a th:href="@{/member/mypage}"> -->
+            <a href="">
+              <b>마이페이지</b>
+            </a>
+          </li>
+          <li sec:authorize="isAuthenticated">
+            <!-- <a th:href="@{/member/logout}"> -->
+            <a href="">
+              <b>로그아웃</b>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header__category">
+      <ul>
+        <li>
+          <i class="fa-solid fa-layer-group">
+            <ul class="dropdown">
+              <li>
+                <!-- <a th:href="@{/auctionArena/categories}"> -->
+                <a href="">
+                  <b>전체</b>
+                </a>
+              </li>
+              <li>
+                <a th:href="@{/auctionArena/fashion-category}">
+                  <b>패션 의류/잡화</b>
+                </a>
+              </li>
+              <li>
+                <a th:href="@{/auctionArena/mobile-category}">
+                  <b>모바일/태블릿</b>
+                </a>
+              </li>
+              <li>
+                <a th:href="@{/auctionArena/electric-category}">
+                  <b>가전제품</b>
+                </a>
+              </li>
+              <li>
+                <a th:href="@{/auctionArena/game-category}">
+                  <b>게임</b>
+                </a>
+              </li>
+              <li>
+                <a th:href="@{/auctionArena/trib-category}">
+                  <b>레저/여행</b>
+                </a>
+              </li>
+              <li>
+                <a th:href="@{/auctionArena/etc-category}">
+                  <b>기타</b>
+                </a>
+              </li>
+            </ul>
+          </i>
+        </li>
+      </ul>
+      <div class="header__category__notice">
+        <a th:href="@{/auctionArena/product_sale}">
+          <b>판매하기</b>
+        </a>
+      </div>
+      <div class="header__category__notice">
+        <a th:href="@{/auctionArena/market_price}">
+          <b>시세확인</b>
+        </a>
+      </div>
+      <div class="header__category__notice">
+        <a th:href="@{/notice/notice}">
+          <b>공지사항</b>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+<!-- Header End -->
+<th:block layout:fragment="script">
+<script th:src="@{/js/search.js}"></script>
+</th:block>
+
+</html>
