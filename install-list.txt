@@ -1,0 +1,11 @@
+# 장고
+- pip install django
+
+# 필로우
+- pip install pillow
+
+# 챗봇
+- openai
+pip install openai
+- dotenv
+pip install python-dotenv

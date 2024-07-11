@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="{% static "css/chatbot.css/" %}" rel="stylesheet"/>
+  </head>
+
+  <body>
+    <div class="chat-container">
+      <div class="card">
+        <div class="text-white chat-title">상담챗봇</div>
+        <div class="card-body messages-box">
+
+          <ul class="list-unstyled messages-list">
+
+            <li class="message received">
+              <div class="message-text">
+                <div class="message-sender">
+                  <b>Auchat</b>
+                </div>
+                <div class="message-content">
+                  반갑습니다. 옥션아레나의 챗봇 옥챗입니다.<br>
+                  무엇을 도와드릴까요?<br>
+                  <div class="fs">- 고객센터 상담시간 09:00 ~ 18:00 -</div>
+                </div>
+              </div>
+            </li>
+            <li class="choices">
+              <button class="btn btn-outline-primary choice-btn" onclick="sendMessage('응찰 방법')">응찰 방법</button>
+              <button class="btn btn-outline-primary choice-btn" onclick="sendMessage('판매 문의')">판매 방법</button>
+              <button class="btn btn-outline-primary choice-btn" onclick="sendMessage('상품 문의')">상품 문의</button>
+              <button class="btn btn-outline-primary choice-btn" onclick="sendMessage('회원정보 수정')">회원정보 수정</button>
+              <button class="btn btn-outline-primary choice-btn" onclick="sendMessage('회원 탈퇴')">회원 탈퇴</button>
+              <button class="btn btn-outline-primary choice-btn" onclick="sendMessage('고객센터')">고객센터</button>
+            </li>
+          </ul>
+        </div>
+        <form class="message-form">
+          {%csrf_token%}
+          <div class="input-group">
+            <input type="text" class="message-input" placeholder="Type your message...">
+            <div class="input-group-append">
+              <button type="submit" class="btn-send" disabled="disabled">
+                <i class="fa-solid fa-arrow-up"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="{% static "js/chatbot.js/" %}"></script>
+    </body>
+
+  </html>
