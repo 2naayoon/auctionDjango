@@ -1,0 +1,56 @@
+.wish_list {
+  border-top: solid 1px lightgrey;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+}
+
+.wish__list__detail td {
+  text-align: center;
+}
+
+.product_summary {
+  width: 150px;
+}
+
+.wish__list__detail td p {
+  font-weight: bold;
+}
+
+.wish_mainbtns {
+  /* 가운데 정렬 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wish_mainbtns .btn_myPage {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.btn_myPage {
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  margin: auto;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px lightgray solid;
+  /* 정렬 */
+  display: inline-block;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 20px;
+}
+
+.btn_myPage:hover {
+  background-color: #e53637;
+}
+
+.wish__list__detail img {
+  display: block;
+  max-width: 100px;
+  max-height: 100px;
+  margin: auto;
+}

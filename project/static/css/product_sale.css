@@ -1,0 +1,212 @@
+/* 이미지 업로드 input 숨기기 */
+.image_upload_section,
+.product_sale {
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-bottom: 50px; */
+}
+
+.image_upload_section input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+.image_title {
+  margin-top: auto;
+}
+
+.file_div label {
+  /* float: right; */
+  margin-right: 5px;
+}
+
+/* 파일 업로드 버튼 라벨 스타일 변경 */
+/* .image_upload_section label {
+  display: inline-block;
+  padding: 10px 20px;
+  color: black;
+  vertical-align: middle;
+  background-color: lawngreen;
+  cursor: pointer;
+  height: 40px;
+  margin-left: 10px;
+  border-radius: 7px;
+} */
+
+.product_detail div {
+  margin-bottom: 15px;
+}
+
+.product_detail:has(.product_text) {
+  margin-top: 80px;
+}
+
+.product_text textarea {
+  height: 150px;
+}
+
+.product_sale_head {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 50px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product_sale_head > img {
+  width: 35px;
+  height: 35px;
+}
+
+.section-title {
+  margin-bottom: 15px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title .vali {
+  color: red;
+  font-size: 13px;
+}
+
+.prod_head {
+  margin-bottom: 15px;
+}
+
+.upload_image {
+  border: solid;
+  border-width: 3px;
+  border-radius: 5px;
+  border-color: lightgrey;
+
+  /* background-color: ghostwhite; */
+}
+
+.upload_image_preview {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 15px;
+
+  border: solid;
+  border-width: 3px;
+  border-radius: 5px;
+  border-color: lightgrey;
+
+  /* position: relative; */
+  overflow: auto;
+}
+
+/* .upload_image_preview > div {
+  width: 95%;
+  height: 180px;
+
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+
+  border: solid;
+  border-width: 3px;
+  border-radius: 5px;
+  border-color: lightgrey;
+
+  
+} */
+
+/* 이미지 스크롤 적용 */
+.image_preview {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  vertical-align: top;
+
+  /* overflow-y: none; */
+  overflow-x: scroll;
+  white-space: nowrap;
+  zoom: 1;
+}
+
+.image_preview ul {
+  height: 180px;
+}
+
+.image_preview ul li {
+  display: inline-block;
+}
+/* 이미지 스크롤 적용 종료 */
+
+/* 이미지 업로드 시 글자 줄바꿈 */
+.img_title {
+  width: 100px;
+  margin-right: 15px;
+}
+
+.img_title span {
+  width: 85px;
+  max-width: 85px;
+  white-space: pre-line;
+  overflow: hidden;
+}
+/* 글자 줄바꿈 종료 */
+
+.product_register_btn {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+.product_register_btn .btn {
+  width: 5em;
+  height: 35px;
+  margin: 5px;
+}
+
+.upload_image_form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.upload_image_form > div > div {
+  margin-left: 0;
+}
+
+.upload_image_form > div > .upload_image_preview {
+  margin-left: 0;
+}
+
+.file_div {
+  /* margin-left: auto; */
+  text-align: right;
+}
+
+.product_register_btn {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 버튼 관련 css */
+
+.btn-primary,
+.btn_cancle {
+  color: white !important;
+  background-color: #b7b7b7;
+  border-color: #b7b7b7;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: #e53637;
+  border-color: #e53637;
+}
+
+.btn_cancle:hover {
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+/* 버튼 관련 css 종료 */

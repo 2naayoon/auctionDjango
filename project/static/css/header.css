@@ -1,0 +1,209 @@
+/*---------------------
+  Header
+-----------------------*/
+/* header 수정 */
+#searchForm {
+  width: 55%;
+}
+
+.search-bar {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  opacity: 1;
+  height: 42px;
+  background: #ffffff;
+  font-size: 15px;
+  color: #a6a6a6;
+  border-radius: 2px;
+  border: 1px solid #e8e8e8;
+  padding: 12px 10px;
+  margin-left: 7%;
+}
+
+.search-bar__input {
+  width: 100%;
+  border: none;
+  -webkit-appearance: none;
+  text-align: left;
+  margin-left: 5px;
+  overflow: auto;
+  font-size: 15px;
+}
+
+.search-bar a {
+  color: inherit;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.fa-search {
+  font-size: 15px;
+  right: 0;
+}
+
+.header__category {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 19px;
+  font-weight: 900;
+  display: flex;
+  margin-top: 2px;
+  text-align: center;
+  padding: 20px 0 23px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.header__category__notice {
+  display: flex;
+  padding: 0 20px 0 20px;
+}
+
+.header__category__notice a {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.header__category__notice a:hover {
+  color: #e53637;
+}
+
+.fa-layer-group {
+  padding: 0 10px 0 10px;
+}
+
+.fa-layer-group:hover {
+  color: #e53637;
+}
+
+.header__category ul li {
+  list-style: none;
+  display: inline-block;
+  position: relative;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.header__category ul li.active a {
+  background: #e53637;
+  color: #ffffff;
+}
+
+.header__category ul li:hover a {
+  color: black;
+  visibility: visible;
+  display: flex;
+}
+
+.header__category ul li:hover a:hover {
+  color: red;
+}
+
+.header__category ul li:hover .dropdown {
+  opacity: 1;
+  visibility: visible;
+  border: 1px solid #e8e8e8;
+}
+
+.header__category ul li:hover .dropdown li a {
+  background: transparent;
+  visibility: visible;
+}
+
+.header__category ul li:last-child {
+  margin-right: 0;
+}
+
+.header__category ul li .dropdown {
+  margin-top: 25px;
+  position: absolute;
+  left: 0;
+  width: 340%;
+  background: #ffffff;
+  padding: 5px 0;
+  z-index: 9;
+  opacity: 10%;
+  visibility: hidden;
+  -webkit-transition: all, 0.1s;
+  -o-transition: all, 0.1s;
+  transition: all, 0.1s;
+  border: 1px solid black;
+}
+
+.header__category ul li .dropdown li {
+  display: block;
+  margin-right: 0;
+}
+
+.header__category ul li .dropdown li a {
+  font-size: 14px;
+  font-family: "Noto Sans KR", sans-serif;
+  color: #111111;
+  font-weight: 900;
+  text-align: left;
+}
+
+.header__category ul li a {
+  display: block;
+  font-weight: 700;
+  -webkit-transition: all, 0.1s;
+  -o-transition: all, 0.1s;
+  transition: all, 0.1s;
+  padding: 15%;
+}
+
+/* ============================================ */
+
+.header {
+  margin-top: 10px;
+  min-width: 400px;
+  background: white;
+}
+
+.header nav {
+  width: 25%;
+}
+
+.header nav ul {
+  display: flex;
+  text-align: center;
+}
+
+.header nav ul li {
+  width: auto;
+  text-decoration: none;
+  list-style: none;
+  display: inline-block;
+  position: relative;
+  margin-left: 10%;
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.header__logo {
+  width: 20%;
+}
+
+.header__logo img {
+  width: 100%;
+  height: 95%;
+}
+
+.header__menu ul li.active a {
+  background: #e53637;
+  color: red;
+}
+
+.header__menu ul li:hover a {
+  color: red;
+}
+
+.slicknav_menu {
+  display: none;
+}

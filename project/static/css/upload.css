@@ -1,0 +1,69 @@
+.product_image {
+  /* display: flex; */
+}
+
+.upload_image {
+  width: 180px;
+  height: 180px;
+  background-color: white;
+
+  /* 아이콘 정렬 */
+  /* 수평 중앙 정렬 */
+  display: flex;
+  justify-content: center;
+  /* 수직 중앙 정렬 */
+  align-items: center;
+}
+
+.product_sale {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.product_cate {
+  width: 150px;
+}
+
+/* 원래 이미지 미리보기 css */
+/* .upload_image_preview {
+  width: 580px;
+  height: 220px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+} */
+
+.upload_image_preview {
+  width: 580px;
+  height: 220px;
+  gap: 20px;
+  position: relative;
+}
+
+.upload_image_preview ul {
+  display: flex;
+  /* flex-flow: row; */
+  flex-wrap: wrap;
+  /* overflow: auto; */
+}
+
+.upload_image_preview ul li {
+  list-style: none;
+  padding: 10px;
+  margin-left: 2em;
+}
+
+.upload_image_preview ul li img {
+  width: 100px;
+}
+
+/*  */
+li {
+  list-style: none;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
