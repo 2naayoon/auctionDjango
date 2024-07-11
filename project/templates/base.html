@@ -3,74 +3,100 @@
 <html lang="en">
 
   <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <title>Unbox Blog - Start Bootstrap Theme</title>
-    <link rel="icon" type="image/x-icon" href="{% static "assets/favicon.ico" %}"/>
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
-    <!-- Core theme CSS (includes Bootstrap)-->
-    {% comment %} <link href="css/styles.css" rel="stylesheet"/> {% endcomment %}
-    <link href="{% static "css/styles.css" %}" rel="stylesheet"/>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Anime Template"/>
+    <meta name="keywords" content="Anime, unica, creative, html"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>AuctionArena</title>
+
+    <!-- 브라우저 로고 -->
+    <link rel="icon" href="/img/logo_icon.png"/>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+    <!-- Css Styles -->
+    <!-- <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/> -->
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" type="text/css"/>
+    <!-- <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" type="text/css" /> -->
+    
+    <!-- Sweet Alert -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.1/dist/sweetalert2.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    {% comment %} <link rel="stylesheet" th:href="@{/css/elegant-icons.css}" type="text/css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static "css/elegant-icons.css/" %}" type="text/css"/>
+    {% comment %} 뒤에 type="text/css" 없애도 될듯 {% endcomment %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css/" %}" type="text/css"/>
+    {% comment %} <link rel="stylesheet" th:href="@{/css/plyr.css}" type="text/css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static "css/plyr.css/" %}" type="text/css"/>
+    {% comment %} <link rel="stylesheet" th:href="@{/css/nice-select.css}" type="text/css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static "css/nice-select.css/" %}" type="text/css"/>
+    {% comment %} <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}" type="text/css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static "css/owl.carousel.min.css/" %}" type="text/css"/>
+    {% comment %} <link rel="stylesheet" th:href="@{/css/slicknav.min.css}" type="text/css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static "css/slicknav.min.css/" %}" type="text/css"/>
+    {% comment %} <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static "css/style.css/" %}" type="text/css"/>
+    {% comment %} <link rel="stylesheet" th:href="@{/css/category.css}" type="text/css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static "css/category.css/" %}" type="text/css"/>
+    {% comment %} <link rel="stylesheet" th:href="@{/css/header.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/product_details.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/upload.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/product_sale.css}" type="text/css"/> {% endcomment %}
+    {% comment %} <link rel="stylesheet" th:href="@{/css/floatingbar.css}" type="text/css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static "css/floatingbar.css/" %}" type="text/css"/>
+
+    <!-- swiper 사용(이미지 슬라이더) -->
+    {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/swiper.css}" type="text/css"/> {% endcomment %}
     {% block css %}{% endblock css %}
   </head>
 
   <body>
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
-      <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="{% url "blog:list" %}">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ms-auto py-4 py-lg-0">
-            <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url "index" %}">Home</a>
-            </li>
-            {% if not user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url "common:login" %}">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url "common:register" %}">Register</a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="#" id="logout">Logout</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-lg-3 py-3 py-lg-4" href="">Post</a>
-            </li>
-            {% endif %}
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Page Header-->
-    {% include "header.html" %}
+    <!-- Page Preloder -->
+    <div id="preloder">
+      <div class="loader"></div>
+    </div>
 
-    <!-- Main Content-->
+    <!-- Header Section Begin -->
+    {% include "header.html" %}
+    <!-- Header End -->
     
-      {% block content %}{% endblock content %}
-    
-    <!-- Footer-->
+    <!-- Floatingbar Section Begin -->
+    {% comment %} <div th:replace="~{fragments/floatingbar::floatingbar}"></div> {% endcomment %}
+    {% include "floatingbar.html" %}
+    <!-- Floatingbar End -->
+
+    <!-- 본문 내용 들어올 영역-->
+    {% block content %}{% endblock content %}
+
+    <!-- Footer Section Begin -->
     {% include "footer.html" %}
-    <form action="{% url "common:logout" %}" method="post" id="logoutForm">
-      {% csrf_token %}
-    </form>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="{% static "js/scripts.js" %}"></script>
-    <script src="{% static "js/base.js" %}"></script>
+    <!-- Footer Section End -->
+
+    <!-- Sweet Alert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.1/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static "js/swiper.js/" %}"></script>
+    
+    <!-- Js Plugins -->
+    <script src="{% static "js/jquery-3.3.1.min.js/" %}"></script>
+    <script src="{% static "js/bootstrap.min.js/" %}"></script>
+    <script src="{% static "js/player.js/" %}"></script>
+    <script src="{% static "js/jquery.nice-select.min.js/" %}"></script>
+    <script src="{% static "js/mixitup.min.js/" %}"></script>
+    <script src="{% static "js/jquery.slicknav.js/" %}"></script>
+    <script src="{% static "js/owl.carousel.min.js/" %}"></script>
+    <script src="{% static "js/main.js/" %}"></script>
     {% block script %}{% endblock script %}
+    <!--
+    <th:block layout:fragment="script"></th:block>
+    -->
   </body>
 
 </html>

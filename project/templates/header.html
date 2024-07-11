@@ -1,10 +1,11 @@
+{% load static %}
 <!-- Header Section Begin -->
 <header class="header">
   <div class="container">
     <div class="header__menu">
       <div class="header__logo">
         <!-- <a th:href="@{/}"><img class="header__logo" th:src="@{/img/logo.png}" alt=""/></a> -->
-        <a href="{% url "/" %}"><img class="header__logo" src="/img/logo.png" alt=""/></a>
+        <a href=""><img class="header__logo" src="{% static "assets/logo.png" %}" alt=""/></a>
       </div>
       <!-- 검색 -->
       <!-- <form th:action="@{/auctionArena/categories}" role="search" id="searchForm"> -->
@@ -15,17 +16,19 @@
       <nav>
         <ul>
           <li>
-            <a href="{% url "/" %}">
+            <a href="">
               <b>홈</b>
             </a>
           </li>
-          <li sec:authorize="!isAuthenticated">
+          {% comment %} <li sec:authorize="!isAuthenticated"> {% endcomment %}
+          <li>
             <!-- <a th:href="@{/member/login}"> -->
             <a href="">
               <b>로그인</b>
             </a>
           </li>
-          <li sec:authorize="!isAuthenticated">
+          {% comment %} <li sec:authorize="!isAuthenticated"> {% endcomment %}
+          <li>
             <!-- <a th:href="@{/member/signup}"> -->
             <a href="">
               <b>회원가입</b>
@@ -33,13 +36,15 @@
           </li>
 
           <!-- 로그인 후 -->
-          <li sec:authorize="isAuthenticated">
+          {% comment %} <li sec:authorize="isAuthenticated"> {% endcomment %}
+          <li>
             <!-- <a th:href="@{/member/mypage}"> -->
             <a href="">
               <b>마이페이지</b>
             </a>
           </li>
-          <li sec:authorize="isAuthenticated">
+          {% comment %} <li sec:authorize="isAuthenticated"> {% endcomment %}
+          <li>
             <!-- <a th:href="@{/member/logout}"> -->
             <a href="">
               <b>로그아웃</b>
@@ -91,35 +96,37 @@
               </li>
               <li>
                 <!-- <a th:href="@{/auctionArena/etc-category}"> -->
-                <b>기타</b>
-              </a>
-            </li>
-          </ul>
-        </i>
-      </li>
-    </ul>
-    <div class="header__category__notice">
-      <a th:href="@{/auctionArena/product_sale}">
-        <b>판매하기</b>
-      </a>
-    </div>
-    <div class="header__category__notice">
-      <a th:href="@{/auctionArena/market_price}">
-        <b>시세확인</b>
-      </a>
-    </div>
-    <div class="header__category__notice">
-      <a th:href="@{/notice/notice}">
-        <b>공지사항</b>
-      </a>
+                <a href="">
+                  <b>기타</b>
+                </a>
+              </li>
+            </ul>
+          </i>
+        </li>
+      </ul>
+      <div class="header__category__notice">
+        <!-- <a th:href="@{/auctionArena/product_sale}"> -->
+        <a href="">
+          <b>판매하기</b>
+        </a>
+      </div>
+      <div class="header__category__notice">
+        <!-- <a th:href="@{/auctionArena/market_price}"> -->
+        <a href="">
+          <b>시세확인</b>
+        </a>
+      </div>
+      <div class="header__category__notice">
+        <!-- <a th:href="@{/notice/notice}"> -->
+        <a href="">
+          <b>공지사항</b>
+        </a>
+      </div>
     </div>
   </div>
 </div>
-</div>
 </header>
 <!-- Header End -->
-<th:block layout:fragment="script">
-<script th:src="@{/js/search.js}"></script>
-</th:block>
-
-</html>
+{% block script %}
+{% comment %} <script src="{% url "js/search.js" %}"></script> {% endcomment %}
+{% endblock script %}
