@@ -11,7 +11,7 @@
     <title>AuctionArena</title>
 
     <!-- 브라우저 로고 -->
-    <link rel="icon" href="/img/logo_icon.png"/>
+    <link rel="icon" href="{% static "/assets/logo_icon.png" %}"/>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -42,8 +42,9 @@
     <link rel="stylesheet" href="{% static "css/style.css/" %}" type="text/css"/>
     {% comment %} <link rel="stylesheet" th:href="@{/css/category.css}" type="text/css"/> {% endcomment %}
     <link rel="stylesheet" href="{% static "css/category.css/" %}" type="text/css"/>
-    {% comment %} <link rel="stylesheet" th:href="@{/css/header.css}" type="text/css"/>
-    <link rel="stylesheet" th:href="@{/css/product_details.css}" type="text/css"/>
+    {% comment %} <link rel="stylesheet" th:href="@{/css/header.css}" type="text/css"/> {% endcomment %}
+    <link rel="stylesheet" href="{% static "css/header.css" %}" type="text/css"/>
+    {% comment %} <link rel="stylesheet" th:href="@{/css/product_details.css}" type="text/css"/>
     <link rel="stylesheet" th:href="@{/css/upload.css}" type="text/css"/>
     <link rel="stylesheet" th:href="@{/css/product_sale.css}" type="text/css"/> {% endcomment %}
     {% comment %} <link rel="stylesheet" th:href="@{/css/floatingbar.css}" type="text/css"/> {% endcomment %}

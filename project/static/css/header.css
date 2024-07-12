@@ -181,6 +181,8 @@
 }
 
 .header__menu {
+  font-family: "Mulish", sans-serif;
+  -webkit-font-smoothing: antialiased;
   display: flex;
   align-items: center;
   margin-top: 2px;
