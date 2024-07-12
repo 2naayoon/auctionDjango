@@ -9,3 +9,10 @@
 pip install openai
 - dotenv
 pip install python-dotenv
+
+# 셀레니움(크롤링 용 임시)
+pip install selenium
+# lxml
+pip install lxml
+# BeautifulSoup
+pip install beautifulsoup4
