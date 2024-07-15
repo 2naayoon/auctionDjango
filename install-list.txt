@@ -1,7 +1,7 @@
 # 장고
 - pip install django
 
-# 필로우
+# 필로우(사진 저장)
 - pip install pillow
 
 # 챗봇
@@ -16,3 +16,5 @@ pip install selenium
 pip install lxml
 # BeautifulSoup
 pip install beautifulsoup4
+# webdriver_manager
+pip install webdriver_manager

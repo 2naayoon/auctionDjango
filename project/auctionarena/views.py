@@ -26,26 +26,22 @@ import os
 # set_chrome_driver():
 def set_chrome_driver():
     options = ChromeOptions()
-    driver = webdriver.Chrome(
-        service=Service(ChromeDriverManager().install()), options=options
-    )
+    # 브라우저 띄우지 않고 실행
+    options.add_argument("--headless")
+    # 리눅스에서 셀레니움이 적절히 동작하지 않을 때 사용
+    # options.add_argument("--no-sandbox")
+    # options.add_argument("--single-process")
+    # options.add_argument("--disable-dev-shm-usage")
+    # options.add_argument("")
+    # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) # 여기서 걸림
+    driver = webdriver.Chrome(options=options) # 여기서 걸림
     return driver
 
-
-# Create your views here.
-# def market_price(request, keyword):
-def market_price(request):
-    ##########################################
-    # 검색어를 입력했을 경우에만 아래 전부 진행 #
-    ##########################################
-
-    # 검색어 가져오기
-    keyword = request.Get.get("keyword", "")
-
+def getProductList(keyword):
     browser = set_chrome_driver()
 
     browser.get("https://web.joongna.com/search-price")
-    # print("title >> ", browser.title)
+    print("title >> ", browser.title)
 
     # 검색 창 찾기
     # 페이지에서 요소 찾기 : find_element, find_elements
@@ -53,7 +49,6 @@ def market_price(request):
     print(element)
 
     # 검색어 입력 + 엔터
-    keyword = "스위치"  # 추후 이름 바꿔야함
     element.send_keys(keyword)
     element.send_keys(Keys.ENTER)
 
@@ -85,11 +80,46 @@ def market_price(request):
         prod_price = product.select_one(
             "div.overflow-hidden > div.font-semibold > span"
         ).text
+        href = "https://web.joongna.com"
+        prod_addr = ''.join(product.get_attribute_list("href"))
+        
+        prod_price = prod_price.split("원")[0]
+        prod_price = prod_price.replace(",", "")
 
-        print("image : ", prod_image)
-        print(str(idx) + " : " + prod_name + " / " + prod_price)
+
+        # 데이터 저장
+        market = Market(title = prod_name, image_src = prod_image, price = prod_price, product_src = href+prod_addr)
+        # print("market : ", market.product_src)
+        market.save()
+
+        print("image : ", market.image_src)
+        print("addr : ", market.product_src)
+        print(str(idx) + " : " + market.title + " / " + market.price)
 
     # 브라우저 종료
     browser.quit()
 
-    return render(request, "market/market_list.html")
+    return market
+
+# def market_price(request, keyword):
+def market_price(request):
+    ##########################################
+    # 검색어를 입력했을 경우에만 아래 전부 진행 #
+    ##########################################
+
+    # 검색어 가져오기
+    keyword = request.GET.get("form_keyword", "")
+
+    if keyword != "":
+        print("{} 키워드 검색 시작".format(keyword))
+        # Market = getProductList(keyword)
+        getProductList(keyword)
+
+        print("결과 : ", Market.objects.all())
+
+        # if Market:
+        #     context = 
+    
+
+    context = {"keyword" : keyword}
+    return render(request, "market/market_list.html", context)
