@@ -19,6 +19,8 @@ from bs4 import BeautifulSoup
 
 import time
 
+import json
+
 # 이미지 저장용 폴더 생성
 import os
 
@@ -34,19 +36,20 @@ def set_chrome_driver():
     # options.add_argument("--disable-dev-shm-usage")
     # options.add_argument("")
     # driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) # 여기서 걸림
-    driver = webdriver.Chrome(options=options) # 여기서 걸림
+    driver = webdriver.Chrome(options=options)  # 여기서 걸림
     return driver
+
 
 def getProductList(keyword):
     browser = set_chrome_driver()
 
     browser.get("https://web.joongna.com/search-price")
-    print("title >> ", browser.title)
+    # print("title >> ", browser.title)
 
     # 검색 창 찾기
     # 페이지에서 요소 찾기 : find_element, find_elements
     element = browser.find_element(By.ID, "auto-complete")
-    print(element)
+    # print(element)
 
     # 검색어 입력 + 엔터
     element.send_keys(keyword)
@@ -68,12 +71,31 @@ def getProductList(keyword):
     # 중고나라 페이지 소스 가져오기
     soup = BeautifulSoup(browser.page_source, "lxml")
 
+    # 평균, 최고, 최저가 가져오기
+    product_price = soup.select_one("div.bg-opacity-10")
+    price = product_price.select(".font-bold")
+
+    # 평균, 최고, 최저가
+    avg_price = price[0].get_text()
+    max_price = price[1].get_text()
+    min_price = price[2].get_text()
+
+    prices = []
+    prices.append(avg_price)
+    prices.append(max_price)
+    prices.append(min_price)
+
+    print("avg, max, min", prices)
+
     # 제품 div 별로 가져오기
     product_list = soup.select("a.box-border")
     # print("prod_list >> ", product_list)
 
     # 리스트를 제품별로 출력
+    prod_lists = []
     for idx, product in enumerate(product_list):
+        # 리스트 부터 추가
+        prod_lists.append([])
         # 상품명
         prod_image = product.select_one("img").get_attribute_list("src")
         prod_name = product.select_one("div.overflow-hidden > h2").text
@@ -81,25 +103,34 @@ def getProductList(keyword):
             "div.overflow-hidden > div.font-semibold > span"
         ).text
         href = "https://web.joongna.com"
-        prod_addr = ''.join(product.get_attribute_list("href"))
-        
-        prod_price = prod_price.split("원")[0]
-        prod_price = prod_price.replace(",", "")
+        prod_addr = "".join(product.get_attribute_list("href"))
 
+        #######
+        # 리스트 형태로 저장
+        #######
+        prod_lists[idx].append(*prod_image)
+        prod_lists[idx].append(prod_name)
+        prod_lists[idx].append(prod_price)
+        prod_lists[idx].append(href + prod_addr)
 
         # 데이터 저장
-        market = Market(title = prod_name, image_src = prod_image, price = prod_price, product_src = href+prod_addr)
-        # print("market : ", market.product_src)
-        market.save()
-
-        print("image : ", market.image_src)
-        print("addr : ", market.product_src)
-        print(str(idx) + " : " + market.title + " / " + market.price)
+        # markets = Market(
+        #     title=prod_name,
+        #     image_src=prod_image,
+        #     price=prod_price,
+        #     product_src=href + prod_addr,
+        # )
+        # markets.save()
 
     # 브라우저 종료
     browser.quit()
 
-    return market
+    # json 으로 변환
+    # jsonList = json.dumps(prod_lists)
+
+    print("함수 결과 : ", prod_lists)
+    return prod_lists, prices
+
 
 # def market_price(request, keyword):
 def market_price(request):
@@ -110,16 +141,17 @@ def market_price(request):
     # 검색어 가져오기
     keyword = request.GET.get("form_keyword", "")
 
+    prodList = []
+    prices = []
     if keyword != "":
-        print("{} 키워드 검색 시작".format(keyword))
+        # print("{} 키워드 검색 시작".format(keyword))
         # Market = getProductList(keyword)
-        getProductList(keyword)
+        prodList, prices = getProductList(keyword)
 
-        print("결과 : ", Market.objects.all())
+        # print("결과 : ", Market.objects.all())
+        # for list in prodList:
+        #     print("결과 : ", list)
 
-        # if Market:
-        #     context = 
-    
-
-    context = {"keyword" : keyword}
+    # context = {"keyword": keyword, "prod_list": prodList}
+    context = {"prod_list": prodList, "prices": prices}
     return render(request, "market/market_list.html", context)

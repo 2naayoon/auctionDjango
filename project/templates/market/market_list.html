@@ -1,18 +1,73 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<h5>시세확인</h5>
-<div class="input-group search">
-  <input type="text" name="" id="keyword" class="search_input" placeholder="검색어를 입력하세요" value="{{keyword|default_if_none:''}}" />
-  <button type="button" id="btn_search" name="btn_search" class="btn btn-outline-success btn_search ml-1">검색</button>
-</div>
+  <section class="head">
+    <div class="market_list_head">
+      <img src="{% static "/assets/logo_icon2.png" %}" alt="">
+      <h3 class="">시세확인</h3>
+    </div>
+  </section>
 
-<!--검색 버튼 클릭 시 이동할 폼-->
+  <section class="market_price">
+    <div class="input-group search">
+      <div>
+        <input type="text" name="" id="keyword" class="search_input" placeholder="검색어를 입력하세요" value="{{keyword|default_if_none:''}}"/>
+        <button type="button" id="btn_search" name="btn_search" class="btn btn-outline-success btn_search ml-1">검색</button>
+      </div>
+    </div>
 
-<form action="" method="get" id="actionForm">
-  <input type="hidden" name="form_keyword" id="form_keyword" value="{{keyword|default_if_none:''}}" />
-</form>
- 
+    {% if prod_list %}
+      {% comment %} 해당 제품의 최근 가격을 비교했습니다<br> {% endcomment %}
+      <div class="price_list">
+        <div class="avg_price">
+          <span>평균가</span>
+          <span>{{prices.0}}원</span>
+        </div>
+        <div class="max_price">
+          <span>최고가</span>
+          <span>{{prices.1}}원</span>
+        </div>
+        <div class="min_price">
+          <span>최저가</span>
+          <span>{{prices.2}}원</span>
+        </div>
+      </div>
+    {% endif %}
+
+    <table class="table product_table">
+      <thead>
+        <th style="width: 12%">번호</th>
+        <th style="width: 68%">제품</th>
+        <th style="width: 20%">가격</th>
+      </thead>
+      <tbody>
+        {% for prod in prod_list %}
+          <tr class="market_price_detail">
+            <td class="content_no content">{{forloop.counter}}</td>
+            <td>
+              <a href="{{prod.3}}" class="img_div">
+                <div>
+                  <img src="{{prod.0}}" alt="">
+                </div>
+                <div class="text">
+                  <span>{{prod.1}}</span>
+                </div>
+              </a>
+            </td>
+            <td class="content">
+              <span>{{prod.2}}</span>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+
+  <!--검색 버튼 클릭 시 이동할 폼-->
+  <form action="" method="get" id="actionForm">
+    <input type="hidden" name="form_keyword" id="form_keyword" value="{{keyword|default_if_none:''}}"/>
+  </form>
+
 {% endblock content %}
 {% block script %}
   <script src="{% static "js/market_list.js" %}"></script>

@@ -1,0 +1,116 @@
+.head {
+  width: 80%;
+  max-width: 1170px;
+  margin: auto;
+}
+
+.market_list_head {
+  display: flex;
+  margin-top: 30px;
+  /* margin-bottom: 15px; */
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search_input {
+  height: 38px;
+}
+
+.search div {
+  margin-left: auto;
+}
+
+.market_list_head > .logo > img {
+  width: 35px;
+  height: 35px;
+}
+
+/* 제품 평균, 최고, 최저가 css */
+.price_list {
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.price_list > div {
+  width: 33.3%;
+  text-align: center;
+}
+
+.price_list > div > span {
+  font-size: 16px;
+}
+
+.avg_price span:nth-child(2),
+.max_price span:nth-child(2),
+.min_price span:nth-child(2) {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.max_price span:nth-child(2) {
+  color: #f87171;
+}
+
+.min_price span:nth-child(2) {
+  color: #3a82f8;
+}
+/* 제품 평균, 최고, 최저가 css 종료 */
+
+/* 테이블 css */
+.market_price {
+  width: 80%;
+  max-width: 1170px;
+  margin: auto;
+  padding: 30px 15px;
+}
+
+/* .market_price_detail {
+  align-items: center;
+} */
+
+.product_table {
+  border-top: solid 1px lightgrey;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  table-layout: fixed;
+}
+
+thead {
+  text-align: center;
+  font-weight: bold;
+}
+
+td.content {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+td.content_no {
+  /* text-align: center; */
+  font-weight: bold;
+}
+
+.img_div {
+  display: flex;
+  align-items: center;
+}
+
+.text {
+  word-break: keep-all;
+  vertical-align: middle;
+}
+
+/* 테이블 css 종료*/
+
+/* 제품 이미지 css */
+.img_div img {
+  width: 100px;
+  height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+}
+/* 제품 css 종료*/
