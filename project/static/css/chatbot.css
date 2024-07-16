@@ -46,7 +46,7 @@ body {
 
 .messages-box {
     flex: none !important;
-    height: 870px;
+    height: 800px;
     overflow-y: overlay;
 }
 
