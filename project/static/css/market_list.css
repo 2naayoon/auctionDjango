@@ -84,6 +84,9 @@ thead {
 }
 
 td.content {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
   display: table-cell;
   vertical-align: middle;
 }
@@ -99,6 +102,10 @@ td.content_no {
 }
 
 .text {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  margin: 0 auto;
   word-break: keep-all;
   vertical-align: middle;
 }
